@@ -1,3 +1,40 @@
 # start services on random port by default
 server:
   port: 0
+
+spring:
+  # DATABASE PROPERTIES
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: true
+    hibernate:
+      ddl-auto: validate
+  
+  # DATABASE PROPERTIES
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pet_clinic?serverTimezone=Europe/Madrid&useSSL=false
+  
+  # ZIPKIN PROPERTIES
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    baseUrl: http://tracing-server:9411  
+    
+# DISCOVERY SERVER PROPERTIES
+eureka:
+  instance:
+    # enable to register multiple app instances with a random server port
+    instance-id: ${spring.application.name}:${random.uuid}
+  client:
+    serviceUrl:
+      defaultZone: http://discovery-server:8761/eureka/
+  
+# ACTUATOR PROPERTIES
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'
