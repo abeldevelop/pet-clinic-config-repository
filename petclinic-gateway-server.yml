@@ -1,3 +1,29 @@
 ﻿server:
   port: 9000
 
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: petclinic-customers-service
+        uri: lb://petclinic-customers-service
+        predicates:
+        - Path=/api/customers/**
+        filters:
+        - RewritePath=/api/customers(?<path>.*), /$\{path}
+      - id: petclinic-vets-service
+        uri: lb://petclinic-vets-service
+        predicates:
+        - Path=/api/vets/**
+        filters:
+        - RewritePath=/api/vets(?<path>.*), /$\{path}
+      - id: petclinic-visits-service
+        uri: lb://petclinic-visits-service
+        predicates:
+        - Path=/api/visits/**
+        filters:
+        - RewritePath=/api/visits(?<path>.*), /$\{path}
