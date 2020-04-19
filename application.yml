@@ -20,7 +20,8 @@ spring:
   # ZIPKIN PROPERTIES
   sleuth:
     sampler:
-      probability: 1.0
+#      probability: 1.0
+      percentage: 1.0
 #  zipkin:
 #    baseUrl: http://tracing-server:9411  
 
@@ -29,6 +30,17 @@ spring:
     admin:
       client:
         url: http://localhost:9090
+
+  cloud:
+    config:
+       # Allow the microservices to override the remote properties with their own System properties or config file
+       allow-override: true
+       # Override configuration with any local property source
+       override-none: true
+    # Temporary hack required by the Spring Boot 2 / Spring Cloud Finchley branch
+    # Waiting issue https://github.com/spring-projects/spring-boot/issues/13042
+    refresh:
+      refreshable: false
         
 # DISCOVERY SERVER PROPERTIES
 eureka:
@@ -43,8 +55,17 @@ eureka:
   
 # ACTUATOR PROPERTIES
 management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
   endpoints:
     web:
       exposure:
         include:
         - '*'
+  metrics:
+    export:
+      prometheus:
+        enabled: true
