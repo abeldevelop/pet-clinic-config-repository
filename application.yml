@@ -13,9 +13,6 @@ spring:
   # DATABASE PROPERTIES
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/pet_clinic?serverTimezone=Europe/Madrid&useSSL=false
-    username: root
-    password: admin
   
   # ZIPKIN PROPERTIES
   sleuth:
@@ -24,12 +21,6 @@ spring:
       percentage: 1.0
 #  zipkin:
 #    baseUrl: http://tracing-server:9411  
-
-  # ADMIN PROPERTIES
-  boot:
-    admin:
-      client:
-        url: http://localhost:9090
 
   cloud:
     config:
@@ -49,9 +40,6 @@ eureka:
     #instance-id: ${spring.application.name}:${random.uuid}
     prefer-ip-address: true
     
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
   
 # ACTUATOR PROPERTIES
 management:

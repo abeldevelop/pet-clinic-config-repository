@@ -1,0 +1,24 @@
+spring:
+  # DATABASE PROPERTIES
+  datasource:
+    url: jdbc:mysql://localhost:3306/pet_clinic?serverTimezone=Europe/Madrid&useSSL=false
+    username: root
+    password: admin
+  
+  # ZIPKIN PROPERTIES
+#  sleuth:
+#  zipkin:
+#    baseUrl: http://tracing-server:9411  
+
+  # ADMIN PROPERTIES
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090
+
+        
+# DISCOVERY SERVER PROPERTIES
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
