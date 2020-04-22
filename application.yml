@@ -15,10 +15,10 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   
   # ZIPKIN PROPERTIES
-  sleuth:
-    sampler:
+#  sleuth:
+#    sampler:
 #      probability: 1.0
-      percentage: 1.0
+#      percentage: 1.0
 #  zipkin:
 #    baseUrl: http://tracing-server:9411  
 
