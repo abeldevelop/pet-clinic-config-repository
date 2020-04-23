@@ -33,7 +33,12 @@ spring:
     # Waiting issue https://github.com/spring-projects/spring-boot/issues/13042
     refresh:
       refreshable: false
-        
+
+  # FLYWAY PROPERTIES
+  flyway:
+    group: true
+    installed-by: ${spring.application.name}
+
 # DISCOVERY SERVER PROPERTIES
 eureka:
   instance:
