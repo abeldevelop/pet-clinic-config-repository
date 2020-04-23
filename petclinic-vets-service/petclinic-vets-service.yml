@@ -1,4 +1,10 @@
-﻿vets:
+﻿petclinic:
+  # DATABASE PROPERTIES
+  database:
+    name: pet_clinic_vets
+      
+      
+vets:
   cache:
     ttl: 60
     heap-size: 100
