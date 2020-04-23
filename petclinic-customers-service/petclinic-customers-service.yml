@@ -1,1 +1,5 @@
-﻿
+﻿petclinic:
+  # DATABASE PROPERTIES
+  database:
+    name: pet_clinic_customers
+      

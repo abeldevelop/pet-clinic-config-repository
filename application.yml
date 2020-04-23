@@ -13,6 +13,7 @@ spring:
   # DATABASE PROPERTIES
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${petclinic.database.host}/${petclinic.database.name}?serverTimezone=Europe/Madrid&useSSL=false
   
   # ZIPKIN PROPERTIES
 #  sleuth:
